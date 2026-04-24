@@ -35,22 +35,39 @@ def calcula_pontos_soma(dados):
     return soma
 
 def calcula_pontos_sequencia_baixa(dados):
-    if (1 in dados and 2 in dados and 3 in dados and 4 in dados):
-        return 15
-    elif (2 in dados and 3 in dados and 4 in dados and 5 in dados):
-        return 15
-    elif (3 in dados and 4 in dados and 5 in dados and 6 in dados):
-        return 15
-    else:
-        return 0
+    sequencias = [
+        [1, 2, 3, 4],
+        [2, 3, 4, 5],
+        [3, 4, 5, 6]
+    ]
     
+    for seq in sequencias:
+        encontrou = 0
+        for num in seq:
+            if num not in dados:
+                encontrou += 1
+                break
+        if encontrou == 0:
+            return 15
+    
+    return 0
+
 def calcula_pontos_sequencia_alta(dados):
-    if (1 in dados and 2 in dados and 3 in dados and 4 in dados and 5 in dados):
-        return 30
-    elif (2 in dados and 3 in dados and 4 in dados and 5 in dados and 6 in dados):
-        return 30
-    else:
-        return 0
+    sequencias = [
+        [1, 2, 3, 4, 5],
+        [2, 3, 4, 5, 6]
+    ]
+    
+    for seq in sequencias:
+        encontrou = 0
+        for num in seq:
+            if num not in dados:
+                encontrou += 1
+                break
+        if encontrou == 0:
+            return 30
+    
+    return 0
     
 def calcula_pontos_full_house(dados):
     for i in dados:
