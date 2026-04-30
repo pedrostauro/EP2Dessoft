@@ -123,6 +123,21 @@ def calcula_pontos_regra_avancada(dados):
         'sequencia_baixa': calcula_pontos_sequencia_baixa(dados)
     }
 
+
+def faz_jogada(dados, categoria, infos_cartela):
+    if categoria in ["1", "2", "3", "4", "5", "6"]:
+        categoria_int = int(categoria)
+
+
+        pontos = calcula_pontos_regra_simples(dados)
+        infos_cartela["regra_simples"][categoria_int] = pontos[categoria_int]
+
+    else:
+        pontos = calcula_pontos_regra_avancada(dados)
+        infos_cartela["regra_avancada"][categoria] = pontos[categoria]
+    
+    return infos_cartela
+
 def imprime_cartela(cartela):
     print("Cartela de Pontos:")
     print("-"*25)    
@@ -139,3 +154,4 @@ def imprime_cartela(cartela):
         else:
             print(f"| {i}: {filler}|    |")
     print("-"*25)
+
